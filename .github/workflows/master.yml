@@ -1,4 +1,4 @@
-name: Continuous Integrations & Delivery
+name: Continuous Integration & Delivery
 on:
   pull_request:
     branches:
@@ -21,6 +21,8 @@ jobs:
     name: Create version number
     runs-on: ubuntu-latest
     needs: [flutter_test]
+    outputs:
+      semVer: ${{ steps.gitversion.outputs.semVer }}
     steps:
       - uses: actions/checkout@v3
 
@@ -34,12 +36,19 @@ jobs:
         with:
           versionSpec: "5.x"
 
-      - name: Use GitVersion
+      # - name: Use GitVersion
+      #   id: gitversion
+      #   uses: gittools/actions/gitversion/execute@v0.9.7
+
+      # - name: Create version.txt with nuGetVersion
+      #   run: echo ${{ steps.gitversion.outputs.nuGetVersion }} > version.txt
+
+      - name: Determine Version
         id: gitversion
         uses: gittools/actions/gitversion/execute@v0.9.7
 
       - name: Create version.txt with nuGetVersion
-        run: echo ${{ steps.gitversion.outputs.nuGetVersion }} > version.txt
+        run: echo ${{ steps.gitversion.outputs.semVer }} > version.txt
 
       - name: Upload version.txt
         uses: actions/upload-artifact@v2
