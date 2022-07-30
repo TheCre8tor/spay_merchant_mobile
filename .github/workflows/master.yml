@@ -74,11 +74,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: calculate-version
     env:
-      SEMVER: ${{ needs.calculate-version.outputs }}
+      SEMVER: ${{ needs.calculate-version.outputs.semVer }}
     steps:
       - name: Display version
         run: |
-          echo SemVer: $SEMVER
+          echo SemVer: $GITVERSION_SEMVER
 
   # build_android:
   #   name: Build APK and Create release
