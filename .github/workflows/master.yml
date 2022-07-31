@@ -127,6 +127,6 @@ jobs:
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAYSTORE_ACCOUNT_KEY }}
           packageName: com.example.spay_merchant_mobile
-          releaseFiles: app-release.aab
+          releaseFile: app-release.aab
           track: internal
           whatsNewDirectory: distribution/whatsnew
