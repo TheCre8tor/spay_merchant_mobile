@@ -1,4 +1,4 @@
-package com.spay-merchant-mobile
+package com.example.spay_merchant_mobile
 
 import io.flutter.embedding.android.FlutterActivity
 

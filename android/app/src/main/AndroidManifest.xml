@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.spay-merchant-mobile">
+    package="com.example.spay_merchant_mobile">
    <application
         android:label="spay_merchant_mobile"
         android:name="${applicationName}"
