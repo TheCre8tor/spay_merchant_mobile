@@ -1,4 +1,4 @@
-name: Continuous Integrations & Delivery
+name: Continuous Integration & Delivery
 on:
   pull_request:
     branches:
@@ -117,6 +117,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: appbundle
+
+      - name: Create Distribution & a Whatsnew Directory
+        run: |
+          mkdir -p distribution/whatsnew
 
       - name: Release app to internal track
         uses: r0adkll/upload-google-play@v1
