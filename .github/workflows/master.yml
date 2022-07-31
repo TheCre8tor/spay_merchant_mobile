@@ -126,7 +126,7 @@ jobs:
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAYSTORE_ACCOUNT_KEY }}
-          packageName: "com.example.spay_merchant_mobile"
+          packageName: "com.alexander.spay_merchant_mobile"
           releaseFiles: app-release.aab
           track: internal
           whatsNewDirectory: distribution/whatsnew
